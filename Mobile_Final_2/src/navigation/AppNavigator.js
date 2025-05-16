@@ -7,6 +7,7 @@ import RegisterScreen from '../screens/Cadastro.js';
 import BatDataBase from '../screens/BatDataBase.js';
 import Perfil from '../screens/Perfil.js';
 import Config from '../screens/Config.js';
+import Entrada from '../screens/Entrada.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,11 @@ export default function AppNavigator() {
           presentation: 'modal'
           }}/>
         <Stack.Screen name="Config" component={Config} options={{ 
+          headerShown: true, 
+          animation:'slide_from_bottom',
+          presentation: 'modal'
+          }}/>
+        <Stack.Screen name="Entrada" component={Entrada} options={{ 
           headerShown: true, 
           animation:'slide_from_bottom',
           presentation: 'modal'

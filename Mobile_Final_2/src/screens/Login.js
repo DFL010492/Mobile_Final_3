@@ -18,7 +18,7 @@ export default function Login({ navigation }) {
       const data = response.data;
   
       console.log('Usuário logado:', data.email);
-      navigation.replace('BatDataBase');
+      navigation.navigate('Entrada'); // Redireciona para a tela de entrada
       
     } catch (error) {
       if (error.response) {

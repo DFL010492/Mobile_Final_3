@@ -22,7 +22,7 @@ export default function Cadastro({ navigation }) {
         
       const data = response.data;
       console.log(response,'Cadastro feito com sucesso, redirecionando...');
-      navigation.replace('BatDataBase');
+      navigation.navigate('Entrada'); // Redireciona para a tela de entrada
 
     } catch (error) {
       if (error.response) {

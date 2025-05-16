@@ -111,15 +111,12 @@ Usando o Ngrok
 Para tornar o backend acessível via internet (usado no app mobile):
 
 Instale o ngrok (https://ngrok.com/downloads/linux)
-No CMD
-No terminal, execute:
+No terminal, execute: ngrok http 5000
+Copie a URL gerada a frente da palavra 'Forwarding' exemplo: https://e1b0-131-72-222-133.ngrok-free.app, pegue essa parte e substitua na linha 12 no codigo do Login.js e na linha 18 no Cadastro.js mas so até a parte de app/
 
-ngrok http 3000
-Copie a URL gerada, por exemplo: https://abcd1234.ngrok.io
 
-Substitua no app mobile onde estiver a URL base da API.
 
 📱 Frontend
 
 cd Mobile_Final_2
-npx expo start
+npm run start

@@ -7,15 +7,18 @@ const router = express.Router();
 
 // Rota de registro
 router.post('/register', async (req, res) => {
-  const { email, password, nome } = req.body;
+  const { email, password } = req.body;
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
+    console.log('Criando usuário com uid:', user.uid, 'e email:', email);
+    if (!user.uid || !email) {
+      throw new Error('Dados inválidos: UID ou email ausentes');
+    }
     await addDoc(collection(db, 'usuarios'), {
       uid: user.uid,
       email,
-      nome
     });
 
     res.status(201).json({ uid: user.uid, email });

@@ -9,7 +9,7 @@ export default function Login({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://09e5-131-72-222-133.ngrok-free.app/api/auth/login', {
+      const response = await axios.post('https://5f92-131-72-222-133.ngrok-free.app/api/auth/login', {
         email,
         password: senha,
       });

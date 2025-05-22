@@ -8,6 +8,7 @@ import BatDataBase from '../screens/BatDataBase.js';
 import Perfil from '../screens/Perfil.js';
 import Config from '../screens/Config.js';
 import Entrada from '../screens/Entrada.js';
+import HeroDetails from '../screens/HeroDetails.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,15 @@ export default function AppNavigator() {
           animation:'slide_from_bottom',
           presentation: 'modal'
           }}/>
+
+        <Stack.Screen
+          name="Details"
+          component={HeroDetails}
+          options={{
+            presentation: 'modal', // <<< ISSO QUE FAZ FICAR POPUP
+            headerShown: false,    // oculta a barra de topo para parecer pop-up
+          }}
+        />
 
       </Stack.Navigator>
     </NavigationContainer>

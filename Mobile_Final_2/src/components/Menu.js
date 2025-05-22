@@ -15,16 +15,24 @@ export default function Menu({ navigation }) {
     });
   }, [navigation]);
 
-  const handleNavigate = (route) => {
-    setMenuVisible(false);
-    navigation.navigate(route);
-  };
+  // Deixei de usar mas deixei pra saber como era
+  // const handleNavigate = (route) => {
+  //   setMenuVisible(false);
+  //   navigation.navigate(route);
+  // };
 
   return (
     <UserMenu
       visible={menuVisible}
       onClose={() => setMenuVisible(false)}
-      onNavigate={handleNavigate}
+      onNavigate={(screen) => {
+        setMenuVisible(false);
+        navigation.navigate(screen);
+      }}
+      onBackPress={() => {
+        setMenuVisible(false);
+        navigation.goBack();
+      }}
     />
   );
 }

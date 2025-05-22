@@ -32,7 +32,7 @@ export default function UserMenu({ visible, onClose, onNavigate, onBackPress }) 
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: '#00000044',
+    backgroundColor: 'transparent',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     paddingTop: 50,

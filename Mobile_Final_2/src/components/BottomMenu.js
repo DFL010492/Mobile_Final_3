@@ -8,6 +8,7 @@ const BottomMenu = () => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
+        
         {/* Botão do Batman */}
         <TouchableOpacity
           style={styles.batContainer}

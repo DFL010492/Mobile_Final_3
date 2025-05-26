@@ -11,8 +11,8 @@ export default function BatmanLoading() {
       Animated.parallel([
         Animated.sequence([
           Animated.timing(scale, {
-            toValue: 1.2,
-            duration: 600,
+            toValue: 1.1,
+            duration: 500,
             useNativeDriver: true,
           }),
           Animated.timing(scale, {

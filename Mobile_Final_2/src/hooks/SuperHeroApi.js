@@ -43,7 +43,7 @@ export default function useSuperheroApi(searchName) {
 
     fetchData();
 
-    // Limpa a requisição anterior se o searchName mudar
+    // Limpa o efeito se o componente for desmontado ou se searchName mudar
     return () => controller.abort();
   }, [searchName]);
 

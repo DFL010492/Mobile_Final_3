@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, Animated, Image } from 'react-native';
-import Menu from '../components/Menu'; // <-- IMPORTA o Menu
-import styles from './style/EntradaStyle'; // caso tenha um style separado
+import { View, Animated, Image } from 'react-native';
+import Menu from '../components/Menu'; 
+import styles from './style/EntradaStyle';
 import BottomMenu from '../components/BottomMenu';
 
 export default function Entrada({ navigation }) {
+
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
   const fadeIn = () => {
     Animated.timing(fadeAnim, {

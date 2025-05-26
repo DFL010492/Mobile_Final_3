@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, FlatList, Image, TouchableOpacity } from 'react-native';
 import useSuperheroApi from '../hooks/SuperHeroApi';
 import styles from './style/BatStyles';
 import Menu from '../components/Menu';

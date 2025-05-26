@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyD6-sZJiJGfBJytgl6baRUUT53yHF-b870",
   authDomain: "dcmobile-1417a.firebaseapp.com",
   projectId: "dcmobile-1417a",
-  storageBucket: "dcmobile-1417a.appspot.com", // corrigi o ".app" que estava errado
+  storageBucket: "dcmobile-1417a.appspot.com",
   messagingSenderId: "704307290635",
   appId: "1:704307290635:web:670ad17ee8cd5fdfaadd0e",
   measurementId: "G-T9BV9HQDM3"

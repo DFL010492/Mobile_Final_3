@@ -15,7 +15,7 @@ export default function Cadastro({ navigation }) {
     }
 
     try {
-      const response = await axios.post('https://a330-131-72-222-133.ngrok-free.app/api/auth/register', {
+      const response = await axios.post('https://11a8-131-72-222-133.ngrok-free.app/api/auth/register', {
         email,
         password: senha,
       });

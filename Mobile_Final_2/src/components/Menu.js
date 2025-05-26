@@ -8,8 +8,8 @@ export default function Menu({ navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <TouchableOpacity onPress={() => setMenuVisible(true)} style={{ marginLeft: 10 }}>
-          <Text style={{ fontSize: 20 }}>☰</Text>
+        <TouchableOpacity onPress={() => setMenuVisible(true)} style={{ marginLeft: 1 }}>
+          <Text style={{ fontSize: 20, padding: 5 }}>☰</Text>
         </TouchableOpacity>
       ),
     });

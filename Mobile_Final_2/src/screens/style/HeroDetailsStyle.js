@@ -10,11 +10,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modal: {
-    backgroundColor: '#fff',
-    borderRadius: 16,
+    flex: 3,
     width: '90%',
-    maxHeight: height * 0.85,
-    padding: 16,
+    maxHeight: height * 0.95,
+    backgroundColor: '#fff',
+    borderRadius: 6,
+    overflow: 'hidden',
+    paddingTop: 32,
+    flexGrow: 1,
+  },
+  contentWrapper: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 16,
   },
   name: {
     fontSize: 24,
@@ -26,7 +37,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 250,
     borderRadius: 12,
-    marginBottom: 16,
   },
   section: {
     marginTop: 15,
@@ -36,12 +46,14 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    top: -10,
-    right: -10,
-    zIndex: 10,
-    padding: 8,
+    top: 10,
+    right: 10,
+    width: 40,
+    height: 40,
     backgroundColor: '#eee',
     borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   closeText: {
     fontSize: 18,

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#A9A9A9',
     alignItems: 'center',
     width: '100%',
-    height: '93%',
+    height: '100%',
 
   },
     logo: {

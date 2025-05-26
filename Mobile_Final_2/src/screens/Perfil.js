@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
@@ -37,11 +37,18 @@ export default function Perfil() {
   }
 
   return (
-    <View>
-      <Text>Bem-vindo, {perfil.nome}!</Text>
-      <Text>Nome de herói: {perfil.heroi}</Text>
-      <Text>Email: {perfil.email}</Text>
-      <Text>Nascimento: {perfil.nascimento}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Perfil</Text>
+      <Text style={styles.text}>Nome: {perfil.nome}</Text>
+      <Text style={styles.text}>Herói: {perfil.heroi}</Text>
+      <Text style={styles.text}>Email: {perfil.email}</Text>
+      <Text style={styles.text}>Nascimento: {perfil.nascimento}</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20, justifyContent: 'center' },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20 },
+  text: { fontSize: 18, marginBottom: 10 }
+});

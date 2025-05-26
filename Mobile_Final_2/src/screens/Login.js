@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import styles from './style/LoginStyle';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
@@ -9,7 +11,7 @@ export default function Login({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://11a8-131-72-222-133.ngrok-free.app/api/auth/login', {
+      const response = await axios.post('https://fe16-131-72-222-133.ngrok-free.app/api/auth/login', {
         email,
         password: senha,
       });
@@ -18,6 +20,14 @@ export default function Login({ navigation }) {
       const data = response.data;
   
       console.log('Usuário logado:', data.email);
+
+      // 💾 Salva o UID retornado pelo backend
+      await AsyncStorage.setItem('uid', data.uid);
+      const uid = await AsyncStorage.getItem('uid');
+      console.log('UID armazenado:', uid);
+
+      
+
       navigation.navigate('Entrada'); // Redireciona para a tela de entrada
       
     } catch (error) {

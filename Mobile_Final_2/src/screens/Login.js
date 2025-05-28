@@ -1,9 +1,21 @@
+// Login.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Image,
+} from 'react-native';
 import styles from './style/LoginStyle';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
@@ -11,32 +23,24 @@ export default function Login({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://fe16-131-72-222-133.ngrok-free.app/api/auth/login', {
+      const response = await axios.post('https://0575-131-72-222-133.ngrok-free.app/api/auth/login', {
         email,
         password: senha,
       });
-  
-      // Se chegou aqui, é porque o status está entre 200–299
+
       const data = response.data;
-  
       console.log('Usuário logado:', data.email);
 
-      // 💾 Salva o UID retornado pelo backend
       await AsyncStorage.setItem('uid', data.uid);
       const uid = await AsyncStorage.getItem('uid');
       console.log('UID armazenado:', uid);
 
-      
-
-      navigation.navigate('Entrada'); // Redireciona para a tela de entrada
-      
+      navigation.navigate('Entrada');
     } catch (error) {
       if (error.response) {
-        // Erro de resposta do servidor (ex: 400, 401)
         console.error('Erro no login:', error.response.data);
         Alert.alert('Erro ao logar', error.response.data.error || 'Email ou senha incorretos');
       } else {
-        // Erro de rede ou outro erro inesperado
         console.error('Erro ao conectar com o servidor:', error);
         Alert.alert('Erro de conexão', 'Não foi possível conectar ao servidor.');
       }
@@ -44,29 +48,54 @@ export default function Login({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-        autoCapitalize="none"
-        keyboardType="email-address"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Senha"
-        secureTextEntry
-        onChangeText={setSenha}
-        value={senha}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Entrar</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Cadastro')}>
-        <Text style={styles.buttonText}>Criar conta</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, backgroundColor: '#0a0a12' }}
+        keyboardShouldPersistTaps="handled"
+      >
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={{ flex: 1 }}
+        >
+          <View style={styles.container}>
+            <Image
+              source={require('../../assets/image/HeroLogin.png')}
+              style={styles.dcLogo}
+            />
+
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder="Email"
+                placeholderTextColor="#aaa"
+                onChangeText={setEmail}
+                value={email}
+                autoCapitalize="none"
+                keyboardType="email-address"
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Senha"
+                placeholderTextColor="#aaa"
+                secureTextEntry
+                onChangeText={setSenha}
+                value={senha}
+              />
+            </View>
+
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
+              <Text style={styles.buttonText}>ACCESS JUSTICE LEAGUE</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.button, styles.secondaryButton]}
+              onPress={() => navigation.navigate('Cadastro')}
+            >
+              <Text style={styles.buttonText}>BECOME A HERO</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </ScrollView>
+    </TouchableWithoutFeedback>
   );
 }

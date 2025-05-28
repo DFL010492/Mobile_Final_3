@@ -8,43 +8,6 @@ Se for usar o Expo no celular tire a '//' da lina 8 do codigo do arquivo e acres
 
 Se for usar o modo WEB faça o contrario, tire a '//' da lina 4 do codigo do arquivo e acrescente na linha 8
 
-📦 Projeto
-├── 📁 express/                  # Backend Node.js (API REST)
-│   ├── 📁 routes/               # Rotas da API
-│   │   ├── authRoutes.js       # Rotas de autenticação
-│   │   ├── firebaseConfig.js   # Configuração Firebase (backend)
-│   ├── server.js               # Inicialização do servidor Express
-│   ├── package.json            # Dependências do backend
-│
-├── 📁 Mobile_Final_2/          # Frontend Mobile com React Native
-│   ├── 📁 assets/              # Imagens do app
-│   ├── 📁 src/                 # Código-fonte da aplicação
-│   │   ├── 📁 components/      # Componentes reutilizáveis
-│   │   │   ├── LoadingOver.js
-│   │   │   ├── Menu.js
-│   │   │   └── UserMenu.js
-│   │   ├── 📁 hooks/           # Hooks personalizados
-│   │   │   └── SuperHeroAPI.js
-│   │   ├── 📁 navigation/      # Navegação entre telas
-│   │   │   └── AppNavigator.js
-│   │   ├── 📁 screens/         # Telas principais do aplicativo
-│   │   │   ├── 📁 style/       # Estilos CSS-in-JS
-│   │   │   │   ├── BatStyles.js
-│   │   │   │   ├── CadastroStyle.js
-│   │   │   │   └── LoginStyle.js
-│   │   │   ├── BatDataBase.js
-│   │   │   ├── Cadastro.js
-│   │   │   ├── Config.js
-│   │   │   ├── Login.js
-│   │   │   ├── Perfil.js
-│   │   │   └── App.js
-│   │   ├── firebaseConfig.js   # Configuração Firebase (mobile)
-│   │   └── index.js            # Entrada principal do app
-│   ├── app.json                # Configurações do app Expo
-│   ├── package.json            # Dependências do frontend
-│
-├── README.md    
-
 
 🔧 Tecnologias Utilizadas (presumidas)
 Frontend: React Native (Expo), React Navigation, Firebase Auth/DB
@@ -112,8 +75,7 @@ Para tornar o backend acessível via internet (usado no app mobile):
 
 Instale o ngrok (https://ngrok.com/downloads/linux)
 No terminal, execute: ngrok http 5000
-Copie a URL gerada a frente da palavra 'Forwarding' exemplo: https://e1b0-131-72-222-133.ngrok-free.app, pegue essa parte e substitua na linha 12 no codigo do Login.js e na linha 18 no Cadastro.js mas so até a parte de app/
-
+Copie a URL gerada a frente da palavra 'Forwarding' exemplo: https://e1b0-131-72-222-133.ngrok-free.app, pegue essa parte e substitua na linha 12 no codigo do Login.js, na linha 18 no Cadastro.js mas so até a parte de app/ e linha 19 no Perfil.js.
 
 
 📱 Frontend

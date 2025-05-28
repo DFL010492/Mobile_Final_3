@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import styles from './style/CadastroStyle';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import moment from 'moment';
 
 export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState('');
@@ -13,31 +25,43 @@ export default function Cadastro({ navigation }) {
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
 
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => setDatePickerVisibility(true);
+  const hideDatePicker = () => setDatePickerVisibility(false);
+  const handleConfirm = (date) => {
+    setNascimento(moment(date).format('DD/MM/YYYY'));
+    hideDatePicker();
+  };
+
   const handleCadastro = async () => {
-    if (!email || !senha) {
-      // Verifica se todos os campos estão preenchidos) {
+    if (!nome || !heroi || !email || !nascimento || !senha || !confirmarSenha) {
       Alert.alert('Erro', 'Preencha todos os campos');
       return;
     }
 
+    if (senha !== confirmarSenha) {
+      Alert.alert('Erro', 'As senhas não coincidem');
+      return;
+    }
+
     try {
-      const response = await axios.post('https://fe16-131-72-222-133.ngrok-free.app/api/auth/register', {
+      const response = await axios.post('https://0575-131-72-222-133.ngrok-free.app/api/auth/register', {
         nome,
         heroi,
         email,
         nascimento,
         password: senha,
       });
-        
+
       const data = response.data;
-      console.log(response,'Cadastro feito com sucesso, redirecionando...');
-      
+      console.log('Cadastro feito com sucesso:', data);
+
       await AsyncStorage.setItem('uid', data.uid);
       const uid = await AsyncStorage.getItem('uid');
       console.log('UID armazenado:', uid);
 
-      navigation.navigate('Entrada'); // Redireciona para a tela de entrada
-
+      navigation.navigate('Entrada');
     } catch (error) {
       if (error.response) {
         console.error('Erro ao cadastrar:', error.response.data);
@@ -50,58 +74,74 @@ export default function Cadastro({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Cadastro</Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{ flex: 1 }}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={styles.container}>
+            <Text style={styles.title}>Cadastro</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Nome"
-        value={nome}
-        onChangeText={setNome}
-      />
+            <TextInput
+              style={styles.input}
+              placeholder="Nome"
+              value={nome}
+              onChangeText={setNome}
+            />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Nome de Herói"
-        value={heroi}
-        onChangeText={setHeroi}
-      />
+            <TextInput
+              style={styles.input}
+              placeholder="Nome de Herói"
+              value={heroi}
+              onChangeText={setHeroi}
+            />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-        keyboardType="email-address"
-      />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Data de Nascimento (DD/MM/AAAA)"
-        value={nascimento}
-        onChangeText={setNascimento}
-      />
+            {/* Data de Nascimento com Date Picker */}
+            <TouchableOpacity onPress={showDatePicker} style={styles.input}>
+              <Text style={{ color: nascimento ? 'black' : '#999' }}>
+                {nascimento || 'Data de Nascimento'}
+              </Text>
+            </TouchableOpacity>
+            <DateTimePickerModal
+              isVisible={isDatePickerVisible}
+              mode="date"
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+              maximumDate={new Date()}
+            />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Senha"
-        value={senha}
-        onChangeText={setSenha}
-        secureTextEntry
-      />
+            <TextInput
+              style={styles.input}
+              placeholder="Senha"
+              value={senha}
+              onChangeText={setSenha}
+              secureTextEntry
+            />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Confirmar Senha"
-        value={confirmarSenha}
-        onChangeText={setConfirmarSenha}
-        secureTextEntry
-      />
+            <TextInput
+              style={styles.input}
+              placeholder="Confirmar Senha"
+              value={confirmarSenha}
+              onChangeText={setConfirmarSenha}
+              secureTextEntry
+            />
 
-      <TouchableOpacity style={styles.button} onPress={handleCadastro}>
-        <Text style={styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
-    </View>
+            <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+              <Text style={styles.buttonText}>Cadastrar</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }

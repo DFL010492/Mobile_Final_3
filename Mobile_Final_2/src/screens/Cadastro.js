@@ -8,8 +8,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from 'react-native';
 import styles from './style/CadastroStyle';
 import axios from 'axios';
@@ -46,7 +44,7 @@ export default function Cadastro({ navigation }) {
     }
 
     try {
-      const response = await axios.post('https://0575-131-72-222-133.ngrok-free.app/api/auth/register', {
+      const response = await axios.post('https://86a8-131-72-222-133.ngrok-free.app/api/auth/register', {
         nome,
         heroi,
         email,
@@ -78,70 +76,68 @@ export default function Cadastro({ navigation }) {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={{ flex: 1 }}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.container}>
-            <Text style={styles.title}>Cadastro</Text>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Cadastro</Text>
 
-            <TextInput
-              style={styles.input}
-              placeholder="Nome"
-              value={nome}
-              onChangeText={setNome}
-            />
+          <TextInput
+            style={styles.input}
+            placeholder="Nome"
+            value={nome}
+            onChangeText={setNome}
+          />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Nome de Herói"
-              value={heroi}
-              onChangeText={setHeroi}
-            />
+          <TextInput
+            style={styles.input}
+            placeholder="Nome de Herói"
+            value={heroi}
+            onChangeText={setHeroi}
+          />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              value={email}
-              onChangeText={setEmail}
-              autoCapitalize="none"
-              keyboardType="email-address"
-            />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
 
-            {/* Data de Nascimento com Date Picker */}
-            <TouchableOpacity onPress={showDatePicker} style={styles.input}>
-              <Text style={{ color: nascimento ? 'black' : '#999' }}>
-                {nascimento || 'Data de Nascimento'}
-              </Text>
-            </TouchableOpacity>
-            <DateTimePickerModal
-              isVisible={isDatePickerVisible}
-              mode="date"
-              onConfirm={handleConfirm}
-              onCancel={hideDatePicker}
-              maximumDate={new Date()}
-            />
+          {/* Data de Nascimento com Date Picker */}
+          <TouchableOpacity onPress={showDatePicker} style={styles.input}>
+            <Text style={{ color: nascimento ? 'black' : '#999' }}>
+              {nascimento || 'Data de Nascimento'}
+            </Text>
+          </TouchableOpacity>
+          <DateTimePickerModal
+            isVisible={isDatePickerVisible}
+            mode="date"
+            onConfirm={handleConfirm}
+            onCancel={hideDatePicker}
+            maximumDate={new Date()}
+          />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Senha"
-              value={senha}
-              onChangeText={setSenha}
-              secureTextEntry
-            />
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            value={senha}
+            onChangeText={setSenha}
+            secureTextEntry
+          />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Confirmar Senha"
-              value={confirmarSenha}
-              onChangeText={setConfirmarSenha}
-              secureTextEntry
-            />
+          <TextInput
+            style={styles.input}
+            placeholder="Confirmar Senha"
+            value={confirmarSenha}
+            onChangeText={setConfirmarSenha}
+            secureTextEntry
+          />
 
-            <TouchableOpacity style={styles.button} onPress={handleCadastro}>
-              <Text style={styles.buttonText}>Cadastrar</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </TouchableWithoutFeedback>
+          <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+            <Text style={styles.buttonText}>Cadastrar</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }

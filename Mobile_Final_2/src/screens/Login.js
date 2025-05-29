@@ -23,7 +23,7 @@ export default function Login({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://0575-131-72-222-133.ngrok-free.app/api/auth/login', {
+      const response = await axios.post('https://86a8-131-72-222-133.ngrok-free.app/api/auth/login', {
         email,
         password: senha,
       });
@@ -48,54 +48,52 @@ export default function Login({ navigation }) {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1, backgroundColor: '#0a0a12' }}
-        keyboardShouldPersistTaps="handled"
-      >
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    <ScrollView
+      contentContainerStyle={{ flexGrow: 1, backgroundColor: '#0a0a12' }}
+      keyboardShouldPersistTaps="handled"
+    >
+      <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={{ flex: 1 }}
-        >
-          <View style={styles.container}>
-            <Image
-              source={require('../../assets/image/HeroLogin.png')}
-              style={styles.dcLogo}
+      >
+        <View style={styles.container}>
+          <Image
+            source={require('../../assets/image/HeroLogin.png')}
+            style={styles.dcLogo}
+          />
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor="#aaa"
+              onChangeText={setEmail}
+              value={email}
+              autoCapitalize="none"
+              keyboardType="email-address"
             />
-
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Email"
-                placeholderTextColor="#aaa"
-                onChangeText={setEmail}
-                value={email}
-                autoCapitalize="none"
-                keyboardType="email-address"
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Senha"
-                placeholderTextColor="#aaa"
-                secureTextEntry
-                onChangeText={setSenha}
-                value={senha}
-              />
-            </View>
-
-            <TouchableOpacity style={styles.button} onPress={handleLogin}>
-              <Text style={styles.buttonText}>ACCESS JUSTICE LEAGUE</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.button, styles.secondaryButton]}
-              onPress={() => navigation.navigate('Cadastro')}
-            >
-              <Text style={styles.buttonText}>BECOME A HERO</Text>
-            </TouchableOpacity>
+            <TextInput
+              style={styles.input}
+              placeholder="Senha"
+              placeholderTextColor="#aaa"
+              secureTextEntry
+              onChangeText={setSenha}
+              value={senha}
+            />
           </View>
-        </KeyboardAvoidingView>
-      </ScrollView>
-    </TouchableWithoutFeedback>
+
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
+            <Text style={styles.buttonText}>ACCESS JUSTICE LEAGUE</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.button, styles.secondaryButton]}
+            onPress={() => navigation.navigate('Cadastro')}
+          >
+            <Text style={styles.buttonText}>BECOME A HERO</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }

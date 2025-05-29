@@ -109,6 +109,7 @@ export default function Cadastro({ navigation }) {
               {nascimento || 'Data de Nascimento'}
             </Text>
           </TouchableOpacity>
+          
           <DateTimePickerModal
             isVisible={isDatePickerVisible}
             mode="date"

@@ -32,6 +32,7 @@ export default function BatDataBase({ navigation }) {
       <Text style={styles.title}>Bem-vindo ao BatDataBase!</Text>
       <TextInput
         placeholder="Digite o nome do herói"
+        placeholderTextColor={'#fff'}
         value={search}
         onChangeText={setSearch}
         onSubmitEditing={handleSearch}

@@ -19,7 +19,7 @@ export default function Entrada({ navigation }) {
     <View style={styles.container}>
       <Menu navigation={navigation} />
       <Animated.View
-        style={[styles.logoContainer, { opacity: fadeAnim }]}
+        style={[{ opacity: fadeAnim }]}
       >
         <Image
           source={require('../../assets/image/jl2.png')}
@@ -28,6 +28,7 @@ export default function Entrada({ navigation }) {
           resizeMode="contain"
         />
         </Animated.View>
+        
       <BottomMenu />
     </View>
   );

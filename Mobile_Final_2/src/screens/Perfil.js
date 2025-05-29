@@ -16,7 +16,7 @@ export default function Perfil() {
           return;
         }
 
-        const response = await axios.get(`https://0575-131-72-222-133.ngrok-free.app/api/auth/perfil/${uid}`);
+        const response = await axios.get(`https://86a8-131-72-222-133.ngrok-free.app/api/auth/perfil/${uid}`);
         setPerfil(response.data);
       } catch (error) {
         console.error('Erro ao buscar perfil:', error.response?.data || error.message);

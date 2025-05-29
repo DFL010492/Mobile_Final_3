@@ -34,7 +34,7 @@ export default function HeroDetails({ route, navigation }) {
             showsVerticalScrollIndicator={false}
           >
             <Text style={styles.section}>Aparência</Text>
-            <Text>Gênero: {hero.appearance.gender}</Text>
+            <Text style={styles.info}>Gênero: {hero.appearance.gender}</Text>
             <Text>Raça: {hero.appearance.race}</Text>
             <Text>Altura: {hero.appearance.height.join(', ')}</Text>
             <Text>Peso: {hero.appearance.weight.join(', ')}</Text>

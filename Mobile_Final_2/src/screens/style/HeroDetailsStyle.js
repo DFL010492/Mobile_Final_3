@@ -1,3 +1,4 @@
+// ModalStyle.js
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { height } = Dimensions.get('window');
@@ -5,7 +6,7 @@ const { height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: 'rgba(0,0,0,0.8)',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -13,15 +14,19 @@ const styles = StyleSheet.create({
     flex: 3,
     width: '90%',
     maxHeight: height * 0.95,
-    backgroundColor: '#fff',
-    borderRadius: 6,
+    backgroundColor: '#0a0a12',
+    borderRadius: 20,
     overflow: 'hidden',
     paddingTop: 32,
-    flexGrow: 1,
+    shadowColor: '#0078f0',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 10,
   },
   contentWrapper: {
     flex: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
   },
   header: {
     alignItems: 'center',
@@ -30,19 +35,21 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#ffffff',
     textAlign: 'center',
     marginBottom: 10,
   },
   image: {
     width: '100%',
     height: 250,
-    borderRadius: 12,
+    borderRadius: 16,
+    marginBottom: 16,
   },
   section: {
     marginTop: 15,
     fontWeight: 'bold',
     fontSize: 18,
-    color: '#444',
+    color: '#ffffff',
   },
   closeButton: {
     position: 'absolute',
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     right: 10,
     width: 40,
     height: 40,
-    backgroundColor: '#eee',
+    backgroundColor: 'rgba(255,255,255,0.1)',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -58,6 +65,11 @@ const styles = StyleSheet.create({
   closeText: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#ffffff',
+  },
+  info: {
+    color: 'red',
+    fontSize: 16,
   },
 });
 

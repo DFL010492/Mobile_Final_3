@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   info: {
-    color: 'red',
+    color: 'white',
     fontSize: 16,
   },
 });

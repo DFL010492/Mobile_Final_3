@@ -14,6 +14,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import moment from 'moment';
+import Login from './Login';
 
 export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState('');
@@ -44,7 +45,7 @@ export default function Cadastro({ navigation }) {
     }
 
     try {
-      const response = await axios.post('https://86a8-131-72-222-133.ngrok-free.app/api/auth/register', {
+      const response = await axios.post('https://409c-131-72-222-133.ngrok-free.app/api/auth/register', {
         nome,
         heroi,
         email,
@@ -136,6 +137,10 @@ export default function Cadastro({ navigation }) {
 
           <TouchableOpacity style={styles.button} onPress={handleCadastro}>
             <Text style={styles.buttonText}>Cadastrar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.buttonText}>Voltar</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

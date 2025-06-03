@@ -21,15 +21,15 @@ const BottomMenu = () => {
         </TouchableOpacity>
 
         {/* Botão do Superman */}
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.superContainer}
           onPress={() => navigation.navigate('BatDataBase')}
         >
           <Image
             source={require('../../assets/image/superman-sb.png')}
             style={styles.super}
-          />
-        </TouchableOpacity>
+          /> */}
+        {/* </TouchableOpacity> */}
       </View>
     </View>
   );

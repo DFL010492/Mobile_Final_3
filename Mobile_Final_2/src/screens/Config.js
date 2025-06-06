@@ -8,12 +8,12 @@ export default function Config() {
   const toggleNotificacoes = () => setNotificacoesAtivas(!notificacoesAtivas);
   const toggleTema = () => setTemaEscuro(!temaEscuro);
 
-  const handleLogout = () => {
-    Alert.alert('Sair', 'Deseja realmente sair da conta?', [
-      { text: 'Cancelar', style: 'cancel' },
-      { text: 'Sair', onPress: () => console.log('Usuário saiu') },
-    ]);
-  };
+  // const handleLogout = () => {
+  //   Alert.alert('Sair', 'Deseja realmente sair da conta?', [
+  //     { text: 'Cancelar', style: 'cancel' },
+  //     { text: 'Sair', onPress: () => console.log('Usuário saiu') },
+  //   ]);
+  // };
 
   return (
     <View style={styles.container}>

@@ -1,4 +1,3 @@
-// src/components/BatmanLoading.js
 import React, { useEffect, useRef } from 'react';
 import { Animated, View, StyleSheet, Image } from 'react-native';
 

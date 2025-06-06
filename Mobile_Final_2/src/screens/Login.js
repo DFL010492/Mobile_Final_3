@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from 'react';
 import {
   View,
@@ -9,8 +8,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  TouchableWithoutFeedback,
-  Keyboard,
   Image,
 } from 'react-native';
 import styles from './style/LoginStyle';

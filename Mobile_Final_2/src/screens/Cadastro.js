@@ -14,7 +14,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import Login from './Login';
+
 
 export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState('');

@@ -28,7 +28,7 @@ export default function HeroDetails({ route, navigation }) {
             />
           </View>
 
-          {/* Scroll somente nas informações */}
+          {/* Scroll nas informações */}
           <ScrollView
             contentContainerStyle={{ paddingBottom: 20 }}
             showsVerticalScrollIndicator={false}

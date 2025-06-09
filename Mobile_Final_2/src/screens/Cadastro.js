@@ -14,7 +14,6 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import Login from './Login';
 
 export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState('');
@@ -45,7 +44,7 @@ export default function Cadastro({ navigation }) {
     }
 
     try {
-      const response = await axios.post('https://409c-131-72-222-133.ngrok-free.app/api/auth/register', {
+      const response = await axios.post('https://1199-131-72-222-133.ngrok-free.app/api/auth/register', {
         nome,
         heroi,
         email,
@@ -84,6 +83,7 @@ export default function Cadastro({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Nome"
+            placeholderTextColor="#ffffff"
             value={nome}
             onChangeText={setNome}
           />
@@ -91,6 +91,7 @@ export default function Cadastro({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Nome de Herói"
+            placeholderTextColor="#ffffff"
             value={heroi}
             onChangeText={setHeroi}
           />
@@ -98,6 +99,7 @@ export default function Cadastro({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Email"
+            placeholderTextColor="#ffffff"
             value={email}
             onChangeText={setEmail}
             autoCapitalize="none"
@@ -106,7 +108,7 @@ export default function Cadastro({ navigation }) {
 
           {/* Data de Nascimento com Date Picker */}
           <TouchableOpacity onPress={showDatePicker} style={styles.input}>
-            <Text style={{ color: nascimento ? 'black' : '#999' }}>
+            <Text style={{ color: nascimento ? 'black' : '#ffffff' }}>
               {nascimento || 'Data de Nascimento'}
             </Text>
           </TouchableOpacity>
@@ -122,6 +124,7 @@ export default function Cadastro({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Senha"
+            placeholderTextColor="#ffffff"
             value={senha}
             onChangeText={setSenha}
             secureTextEntry
@@ -130,6 +133,7 @@ export default function Cadastro({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Confirmar Senha"
+            placeholderTextColor="#ffffff"
             value={confirmarSenha}
             onChangeText={setConfirmarSenha}
             secureTextEntry

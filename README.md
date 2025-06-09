@@ -48,10 +48,12 @@ Este repositório contém uma aplicação **mobile desenvolvida com React Native
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/DFL010492/Mobile_Final_3
+cd Mobile_Final_3
 
 Instalar Dependências
+
+No visualcode abra um terminal para o express e outro para Mobile_Final_2
 
 🔙 Backend (Express)
 
@@ -70,12 +72,14 @@ cd express
 node server.js
 
 
+Tem que ter o ngrok para funcionar 
+
 Usando o Ngrok
-Para tornar o backend acessível via internet (usado no app mobile):
+Para tornar o backend acessível via internet:
 
 Instale o ngrok (https://ngrok.com/downloads/linux)
 No terminal, execute: ngrok http 5000
-Copie a URL gerada a frente da palavra 'Forwarding' exemplo: https://e1b0-131-72-222-133.ngrok-free.app, pegue essa parte e substitua na linha 12 no codigo do Login.js, na linha 18 no Cadastro.js mas so até a parte de app/ e linha 19 no Perfil.js.
+Copie a URL gerada a frente da palavra 'Forwarding' exemplo: "https://e1b0-131-72-222-133.ngrok-free.app", pegue essa parte e substitua (apenas do "https" até "app" na linha) na linha 26 no codigo do Login.js, na linha 48 no Cadastro.js e linha 19 no Perfil.js.
 
 
 📱 Frontend

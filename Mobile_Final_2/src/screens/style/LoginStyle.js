@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         elevation: 5,
     },
-    secondaryButton: {
-        backgroundColor: 'transparent',
-        borderWidth: 2,
-        borderColor: '#0078f0',
-    },
+    // secondaryButton: {
+    //     backgroundColor: 'transparent',
+    //     borderWidth: 2,
+    //     borderColor: '#0078f0',
+    // },
     buttonText: { 
         color: '#ffffff', 
         textAlign: 'center', 

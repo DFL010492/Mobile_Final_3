@@ -9,8 +9,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  TouchableWithoutFeedback,
-  Keyboard,
   Image,
 } from 'react-native';
 import styles from './style/LoginStyle';
@@ -23,7 +21,7 @@ export default function Login({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://409c-131-72-222-133.ngrok-free.app/api/auth/login', {
+      const response = await axios.post('https://1199-131-72-222-133.ngrok-free.app/api/auth/login', {
         email,
         password: senha,
       });

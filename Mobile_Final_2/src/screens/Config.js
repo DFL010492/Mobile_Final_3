@@ -1,26 +1,44 @@
 import React from 'react';
-import { View, Text, Switch, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  Switch,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Config() {
   const [notificacoesAtivas, setNotificacoesAtivas] = React.useState(true);
   const [temaEscuro, setTemaEscuro] = React.useState(true);
 
-  const toggleNotificacoes = () => setNotificacoesAtivas(!notificacoesAtivas);
-  const toggleTema = () => setTemaEscuro(!temaEscuro);
+  const navigation = useNavigation();
 
-  const handleLogout = () => {
-    Alert.alert('Sair', 'Deseja realmente sair da conta?', [
-      { text: 'Cancelar', style: 'cancel' },
-      { text: 'Sair', onPress: () => console.log('Usuário saiu') },
-    ]);
+  const toggleNotificacoes = () => {
+    setNotificacoesAtivas(!notificacoesAtivas);
+    Alert.alert(
+      'Notificações',
+      !notificacoesAtivas
+        ? 'Notificações ativadas!'
+        : 'Notificações desativadas.'
+    );
   };
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Configurações</Text>
+  const toggleTema = () => {
+    setTemaEscuro(!temaEscuro);
+  };
 
-      <View style={styles.settingItem}>
-        <Text style={styles.settingLabel}>Notificações</Text>
+  // Estilos dinâmicos com base no tema
+  const themeStyles = temaEscuro ? darkTheme : lightTheme;
+  
+
+  return (
+    <View style={[styles.container, themeStyles.container]}>
+      <Text style={[styles.title, themeStyles.text]}>Configurações</Text>
+
+      <View style={[styles.settingItem, themeStyles.settingItem]}>
+        <Text style={[styles.settingLabel, themeStyles.text]}>Notificações</Text>
         <Switch
           value={notificacoesAtivas}
           onValueChange={toggleNotificacoes}
@@ -29,8 +47,8 @@ export default function Config() {
         />
       </View>
 
-      <View style={styles.settingItem}>
-        <Text style={styles.settingLabel}>Tema Escuro</Text>
+      <View style={[styles.settingItem, themeStyles.settingItem]}>
+        <Text style={[styles.settingLabel, themeStyles.text]}>Tema Escuro</Text>
         <Switch
           value={temaEscuro}
           onValueChange={toggleTema}
@@ -39,19 +57,30 @@ export default function Config() {
         />
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      {/* <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Privacidade e Segurança</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <TouchableOpacity style={styles.button}>
+      {/* <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Idioma</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <TouchableOpacity style={styles.button}>
+      {/* <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Sobre o App</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <TouchableOpacity style={[styles.button, styles.logoutButton]} onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity
+        style={[styles.button, styles.logoutButton]}
+        onPress={() => {
+          Alert.alert('Sair', 'Deseja realmente sair da conta?', [
+            { text: 'Cancelar', style: 'cancel' },
+            {
+              text: 'Sair',
+              onPress: () => navigation.navigate('Login'),
+            },
+          ]);
+        }}
+      >
         <Text style={styles.buttonText}>Sair da Conta</Text>
       </TouchableOpacity>
     </View>
@@ -61,13 +90,11 @@ export default function Config() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0a0a12',
     padding: 20,
     justifyContent: 'flex-start',
   },
   title: {
     fontSize: 26,
-    color: '#ffffff',
     fontWeight: 'bold',
     marginBottom: 30,
     textAlign: 'center',
@@ -76,7 +103,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.05)',
     padding: 15,
     borderRadius: 8,
     marginBottom: 20,
@@ -84,7 +110,6 @@ const styles = StyleSheet.create({
     borderLeftColor: '#0078f0',
   },
   settingLabel: {
-    color: '#ffffff',
     fontSize: 16,
   },
   button: {
@@ -104,5 +129,30 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontSize: 16,
     letterSpacing: 1,
+  },
+});
+
+
+const darkTheme = StyleSheet.create({
+  container: {
+    backgroundColor: '#0a0a12',
+  },
+  text: {
+    color: '#ffffff',
+  },
+  settingItem: {
+    backgroundColor: 'rgba(255,255,255,0.05)',
+  },
+});
+
+const lightTheme = StyleSheet.create({
+  container: {
+    backgroundColor: '#f0f0f5',
+  },
+  text: {
+    color: '#000000',
+  },
+  settingItem: {
+    backgroundColor: '#ffffff',
   },
 });

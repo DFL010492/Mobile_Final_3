@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   batContainer: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: '#36454F',
     justifyContent: 'center',
     alignItems: 'center',
     borderRightWidth: 1,

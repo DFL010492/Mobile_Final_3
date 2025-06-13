@@ -20,10 +20,6 @@ Este repositório contém uma aplicação **mobile desenvolvida com React Native
 
 ---
 
-## 📁 Estrutura do Projeto
-
-
----
 
 ## 🔧 Tecnologias Utilizadas
 

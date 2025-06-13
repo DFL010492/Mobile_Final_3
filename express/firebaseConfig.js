@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD6-sZJiJGfBJytgl6baRUUT53yHF-b870",
-  authDomain: "dcmobile-1417a.firebaseapp.com",
-  projectId: "dcmobile-1417a",
-  storageBucket: "dcmobile-1417a.appspot.com",
-  messagingSenderId: "704307290635",
-  appId: "1:704307290635:web:670ad17ee8cd5fdfaadd0e",
+  apiKey: "AIzaSyARBX0wwQsy-bkTN2iS5XXPzoT3aXNuEAk",
+  authDomain: "mobile-final3.firebaseapp.com",
+  projectId: "mobile-final3",
+  storageBucket: "mobile-final3.firebasestorage.app",
+  messagingSenderId: "35957442181",
+  appId: "1:35957442181:web:0d16961ae53182afe9cbec",
   measurementId: "G-T9BV9HQDM3"
 };
 
